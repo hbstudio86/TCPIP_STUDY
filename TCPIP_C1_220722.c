@@ -32,3 +32,9 @@
 // 
 // 
 //
+#include <WinSock2.h>
+
+int WSAStartup(WORD wVersionRequested, LPWSADATA lpWSAData);
+// 성공시 0, 실패시 0이 아닌 에러코드값 반환
+// 첫 번째 매개변수 : 프로그래머가 사용할 윈속의 버전정보
+// 두 번째 매개변수 : WSADATA라는 구조체 변수의 주소 값 전달
