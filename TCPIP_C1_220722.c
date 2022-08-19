@@ -33,8 +33,29 @@
 // 
 //
 #include <WinSock2.h>
-
-int WSAStartup(WORD wVersionRequested, LPWSADATA lpWSAData);
+//그전에 winsock을 참조해야 한다. ws2_32.lib
+//int WSAStartup(WORD wVersionRequested, LPWSADATA lpWSAData);
 // 성공시 0, 실패시 0이 아닌 에러코드값 반환
 // 첫 번째 매개변수 : 프로그래머가 사용할 윈속의 버전정보
+// 버전의 경우 상위 8비트가 부버전, 하위 8비트가 주버전을 의미한다.
+// 쉽게 사용하기 위해 makeword(주버전, 부버전) 매크로를 이용하면 좋다
 // 두 번째 매개변수 : WSADATA라는 구조체 변수의 주소 값 전달
+
+//int WSACleanup(void);
+//성공시 0, 실패시 socket_error 반환
+//할당된 윈속 라이브러리는 위도우 운영체제에 반환, 주로 프로그램 종료 전에 실행 한다.
+//int main(int argc, char* argv[]) {
+//	WSADATA wsaData;
+//  if (WSAStartup (MAKEWORD(2,2), &wsaData) != 0)
+//		ErrorHandling("WSAStartup() error!");
+//	return 0;
+//}
+
+//리눅스 소켓 주요 함수들은
+//socket bind listen accept 인데 각각 대응되는 윈속 함수들은
+//SOCKET socket(int af, int type, int protocol);
+//int bind(SOCKET s, const struct sockaddr * name, int namelen);
+//int listen(SOCKET s, int backlog);
+//SOCKET accept(SOCKET s, struct sockaddr * addr, int * addrlen);
+//int connect(SOCKET s, const struct sockaddr * name, int namelen);
+//int closesocket(SOCKET s);
