@@ -1,0 +1,13 @@
+위도우 기반 입출력 함수
+int send(SOCKET s, const char* buf,int len,int falgs);
+s: 데이터 전송 대상과의 연결을 의미하는 소켓의 핸들 값 전달
+buf : 전송할 데이터를 저장하고 있는 버퍼의 주소 값 전달
+len : 전송할 바이트 수 전달
+flags : 데이터 전송 시 적용할 다양한 옵션 정보 전달
+성공시 전송된 바이트 수, 실패시 socket_error 반환
+int recv(SOCKET s, const* buf, int len, int flags)
+s: 데이터 수신대상과의 연결을 의미하는 소켓의 핸들 값 전달
+buf : 수신할 데이터를 저장하고 있는 버퍼의 주소 값 전달
+len : 수신할 바이트 수 전달
+flags : 데이터 수신 시 적용할 다양한 옵션 정보 전달
+
